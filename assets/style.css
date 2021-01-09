@@ -3,6 +3,22 @@
 *{
     box-sizing: border-box;
 }
+:root {
+    /* colors */
+    --first-color: #fff000;
+    --white-color: #e9eaec;
+    --dark-color: #000;
+    --dark-color-lighten: #f3f5ff;
+    
+
+
+    /* typography */
+    /* --body-font: font-family: 'Poppins', sans-serif; */
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+}
 
 html, body {
     font-family: 'Avenir Next Condesed','Source Sans Pro', sans-serif, Arial, Helvetica;
@@ -325,6 +341,113 @@ transform: translate3d(135px , 0, 0);
 }
 
 /* Below is the products being sold */
+.container-shoe {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-color-lighten);
+}
+
+.card {
+    margin-right: 50px;
+    width: 320px;
+    height: 400px;
+    background-color: var(--dark-color);
+    border-radius: 1rem;
+    padding: 4rem 2rem 0;
+    color: var(--white-color);
+    /* overflow-y: hidden; */
+}
+
+.card__img {
+    position: absolute;
+    width: 260px;
+    filter:drop-shadow(5px 10px 15px rgba(8,9,13,.4));
+}
+
+.card__data {
+    transform: translateY(13.2rem);
+    text-align: center;
+}
+
+.card__title {
+    font-size: var(--h1-font-size);
+    color: var(--first-color);
+    margin-bottom: .5rem;
+}
+
+.card__price {
+    display: inline-block;
+    font-size: var(--h2-font-size);
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+}
+
+.card__description {
+    transform: translateX(8px);
+    font-size: var(--small-font-size);
+    text-align: initial;
+    margin-bottom: 1.25rem;
+    opacity: 0;
+}
+
+.card__button {
+    display: block;
+    transform: translateX(5px);
+    width: max-content;
+    padding: 1.125rem 2rem;
+    background-color: #ff0;
+    color: black;
+    border-radius: .5rem;
+    font-weight: 600;
+    transition: .2s;
+    opacity: 0;
+}
+
+.card__button:hover {
+    box-shadow: 0 18px 40px -12px rgba(242, 162, 12, .35);
+}
+
+.card__img,
+.card__data,
+.card__title,
+.card__price,
+.card__description {
+    transition: .5s;
+}
+
+/* ========== Card hover effects ==============*/
+.card:hover .card__img{
+    transform: translate(-1.5rem, -9.5rem) rotate(-20deg);
+}
+
+.card:hover .card__data{
+    transform: translateY(4.8rem);
+}
+
+.card:hover .card__title {
+    transform: translateX(-2.3rem);
+}
+
+.card:hover .card__price {
+    transform: translateX(-94px);
+}
+
+.card:hover .card__description,
+.card:hover .card__button {
+    transition-delay: .2s;
+    opacity: 1;
+}
+
+@media screen and (min-width: 576px) {
+    container-shoe {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
 #products-group {
     padding: 50px 0 0 0;
     overflow: hidden;
