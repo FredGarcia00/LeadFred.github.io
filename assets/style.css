@@ -342,8 +342,10 @@ transform: translate3d(135px , 0, 0);
 
 /* Below is the products being sold */
 .container-shoe {
-    height: 100vh;
+    /* height: 100vh; */
+    margin: 70px 20px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: var(--dark-color-lighten);
@@ -351,8 +353,12 @@ transform: translate3d(135px , 0, 0);
 
 .card {
     margin-right: 50px;
-    width: 320px;
-    height: 400px;
+    margin-left: 50px;
+    margin-top: 50px;
+    /* margin-bottom: 50px; */
+    /* width: 320px; */
+    align-items: center;
+    height: 300px;
     background-color: var(--dark-color);
     border-radius: 1rem;
     padding: 4rem 2rem 0;
@@ -362,7 +368,8 @@ transform: translate3d(135px , 0, 0);
 
 .card__img {
     position: absolute;
-    width: 260px;
+    transform: translateY(-40px);
+    width: 135px;
     filter:drop-shadow(5px 10px 15px rgba(8,9,13,.4));
 }
 
@@ -372,8 +379,9 @@ transform: translate3d(135px , 0, 0);
 }
 
 .card__title {
-    font-size: var(--h1-font-size);
+    font-size: 1.2rem;
     color: var(--first-color);
+    transform: translateY(-125px);
     margin-bottom: .5rem;
 }
 
@@ -381,6 +389,7 @@ transform: translate3d(135px , 0, 0);
     display: inline-block;
     font-size: var(--h2-font-size);
     font-weight: 500;
+    transform: translateY(-130px);
     margin-bottom: 1.25rem;
 }
 
@@ -418,32 +427,75 @@ transform: translate3d(135px , 0, 0);
 }
 
 /* ========== Card hover effects ==============*/
-.card:hover .card__img{
-    transform: translate(-1.5rem, -9.5rem) rotate(-20deg);
+.card:hover .card__img {
+    transform: translate(-1rem, -8.2rem) rotate(-20deg);
 }
 
-.card:hover .card__data{
-    transform: translateY(4.8rem);
+.card:hover .card__data {
+    transform: translate(12px,4.8rem);
 }
 
 .card:hover .card__title {
-    transform: translateX(-2.3rem);
+    transform: translate(-2.3rem,-60px);
 }
 
 .card:hover .card__price {
-    transform: translateX(-94px);
+    transform: translate(-60px,-60px);
 }
 
 .card:hover .card__description,
 .card:hover .card__button {
+    transform: translate(-35px,-70px);
     transition-delay: .2s;
+    text-decoration: none;
     opacity: 1;
 }
 
-@media screen and (min-width: 576px) {
-    container-shoe {
-        display: flex;
-        flex-direction: column;
+.card:hover .card__button {
+    padding: 10px;
+}
+
+@media screen and (min-width: 378px) {
+    .card{
+        align-items: center;
+    }
+    .card:hover .card__title {
+        transform: translate(-3.8rem, -60px)
+    }
+     .card:hover .card__price {
+        transform: translate(-102px,-60px);
+    }
+}
+
+
+@media screen and (min-width: 576px) { 
+    .container-shoe {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .card__img {
+        width: 140px;
+    }
+    .card:hover .card__price {
+        transform: translate(-70px, -60px);
+    }
+    .card:hover .card__button {
+        align-items: center;
+    }
+
+    @media screen and (min-width:768px) {
+        .card:hover .card__title {
+            transform: translate(-75px, -65px);
+        }
+        .card:hover .card__price {
+            transform: translate(-116px,-65px);
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        .container-shoe {
+            grid-template-columns: repeat(3,1fr);
+        }
     }
 }
 
